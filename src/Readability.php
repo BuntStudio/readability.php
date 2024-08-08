@@ -412,7 +412,7 @@ class Readability
                         $metadata['byline'] = array_filter($parsed['author'], function ($author) {
                             return is_array($author) && is_string($author['name'] ?? null);
                         });
-                        $metadata['byline'] = array_map(fn($author) => trim($author['name']), $metadata['byline']);
+                        $metadata['byline'] = array_map(function($author) { return trim($author['name']);}, $metadata['byline']);
                         $metadata['byline'] = implode(', ', $metadata['byline']);
                     }
                 }
